@@ -1,2 +1,2 @@
 # Goal
-½m²ß java servlet + JSP§Þ³N
+æ–°å¢ž java servlet + JSP æŠ€è¡“

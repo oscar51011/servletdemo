@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * ´ú¸Õ Servlet ¸õÂà index.jsp ­¶­±
+ * æ¸¬è©¦ Servlet è·³è½‰ index.jsp é é¢
  * @author oscar51011
- * @date 2022¦~1¤ë9¤é
+ * @date 2022å¹´1æœˆ9æ—¥
  *
  */
 @SuppressWarnings("serial")
