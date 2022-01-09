@@ -19,17 +19,23 @@ import javax.servlet.http.HttpServletResponse;
  */
 @SuppressWarnings("serial")
 public class HelloServlet extends HttpServlet {
-
+	
+	/**
+	 * 僅Server啟動 or 第一次呼叫該Servlet, 才會去執行該方法
+	 * web.xml 的 <load-on-startup> 決定載入方式
+	 */
 	@Override
 	public void init() throws ServletException {
 		System.out.println("HelloServlet Initinal");
 		super.init();
 	}
+
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		System.out.println("start get method");
 		doPost(req, res);
 	}
+	
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		System.out.println("start post method");
