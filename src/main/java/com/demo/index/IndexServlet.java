@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 將流程跳轉至JSP頁面
+ * 將流程跳轉至JSP頁面(Forward)
+ * Forward 是在 server端實現, 因此URL address還會停留在 跳轉前 不會改變
  * @author oscar51011
  * @date 2022年1月9日
  *

@@ -26,6 +26,8 @@
     	( InitServlet 載入順序優於 InitServlet2 )
     <init-param>: 初始化參數
    -->
+   
+   <!-- 測試 forward功能 -->
   <servlet>
     <servlet-name>IndexServlet</servlet-name>
     <servlet-class>com.demo.index.IndexServlet</servlet-class>
@@ -33,8 +35,19 @@
   <servlet-mapping>
     <servlet-name>IndexServlet</servlet-name>
     <url-pattern>/index/IndexServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 測試 redirect功能 -->
+  <servlet>
+    <servlet-name>RedirectServlet</servlet-name>
+    <servlet-class>com.demo.index.RedirectServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RedirectServlet</servlet-name>
+    <url-pattern>/index/RedirectServlet</url-pattern>
   </servlet-mapping> 
    
+   <!-- 測試使用 servlet取得web.xml參數 -->
   <servlet>
     <servlet-name>HelloServlet</servlet-name>
     <servlet-class>com.demo.hello.HelloServlet</servlet-class>
@@ -52,6 +65,7 @@
     <url-pattern>/hello/HelloServlet</url-pattern>
   </servlet-mapping>
   
+  <!-- 測試 servlet啟動順序 -->
   <servlet>
     <servlet-name>InitServlet</servlet-name>
     <servlet-class>com.demo.initial.InitialServlet</servlet-class>
@@ -61,7 +75,7 @@
     <servlet-name>InitServlet</servlet-name>
     <url-pattern>/initial/InitialServlet</url-pattern>
   </servlet-mapping>
-  
+   
   <servlet>
     <servlet-name>InitServlet2</servlet-name>
     <servlet-class>com.demo.initial.InitialServlet2</servlet-class>
