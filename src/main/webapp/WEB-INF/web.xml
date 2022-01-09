@@ -10,6 +10,13 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
+  <!-- 
+    <servlet-name>: 設定Servlet的名稱(該名稱必須唯一)
+    <load-on-startup>: 設定Servlet的載入方式
+    	- 數字 >= 0 時, 在server啟動時即載入(載入順序由小到大排序)
+    	- 數字 <  0 or 無填寫該tag, 在第一次執行時才載入
+    	( InitServlet 載入順序優於 InitServlet2 )
+   -->
   <servlet>
     <servlet-name>HelloServlet</servlet-name>
     <servlet-class>com.demo.hello.HelloServlet</servlet-class>
@@ -18,4 +25,25 @@
     <servlet-name>HelloServlet</servlet-name>
     <url-pattern>/hello/HelloServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>InitServlet</servlet-name>
+    <servlet-class>com.demo.initial.InitialServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InitServlet</servlet-name>
+    <url-pattern>/initial/InitialServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>InitServlet2</servlet-name>
+    <servlet-class>com.demo.initial.InitialServlet2</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InitServlet2</servlet-name>
+    <url-pattern>/initial/InitialServlet2</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

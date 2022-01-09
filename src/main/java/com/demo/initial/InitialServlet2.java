@@ -1,12 +1,9 @@
-package com.demo.hello;
+package com.demo.initial;
 
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,11 +15,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  */
 @SuppressWarnings("serial")
-public class HelloServlet extends HttpServlet {
-
+public class InitialServlet2 extends HttpServlet {
+	
 	@Override
 	public void init() throws ServletException {
-		System.out.println("HelloServlet Initinal");
+		System.out.println("InitialServlet2 Initinal");
 		super.init();
 	}
 	@Override
@@ -33,7 +30,7 @@ public class HelloServlet extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		System.out.println("start post method");
-		String registerForm = "/view/index.jsp";
+		String registerForm = "/view/initial.jsp";
 		RequestDispatcher dispatcher = req.getRequestDispatcher(registerForm);
 		dispatcher.forward(req, res);
 	}
