@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 藉由繼承 HttpServlet 並覆寫其GET, POST ...etc方法來達成目的
+ * web.xml 初始化 servlet , 利用 load-on-startup 決定載入順序
  * @author oscar51011
  * @date 2022年1月9日
  *
@@ -23,15 +23,8 @@ public class InitialServlet2 extends HttpServlet {
 		super.init();
 	}
 	@Override
-	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		System.out.println("start get method");
 		doPost(req, res);
-	}
-	@Override
-	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		System.out.println("start post method");
-		String registerForm = "/view/initial.jsp";
-		RequestDispatcher dispatcher = req.getRequestDispatcher(registerForm);
-		dispatcher.forward(req, res);
 	}
 }

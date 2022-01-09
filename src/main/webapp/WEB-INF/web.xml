@@ -11,15 +11,41 @@
   </welcome-file-list>
   
   <!-- 
+  	設定所有的 servlet 都可以讀取到的參數
+   -->
+  <context-param>
+  	<param-name>globalParameter</param-name>
+  	<param-value>global</param-value>
+  </context-param>
+  
+  <!-- 
     <servlet-name>: 設定Servlet的名稱(該名稱必須唯一)
     <load-on-startup>: 設定Servlet的載入方式
     	- 數字 >= 0 時, 在server啟動時即載入(載入順序由小到大排序)
     	- 數字 <  0 or 無填寫該tag, 在第一次執行時才載入
     	( InitServlet 載入順序優於 InitServlet2 )
+    <init-param>: 初始化參數
    -->
+  <servlet>
+    <servlet-name>IndexServlet</servlet-name>
+    <servlet-class>com.demo.index.IndexServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IndexServlet</servlet-name>
+    <url-pattern>/index/IndexServlet</url-pattern>
+  </servlet-mapping> 
+   
   <servlet>
     <servlet-name>HelloServlet</servlet-name>
     <servlet-class>com.demo.hello.HelloServlet</servlet-class>
+    <init-param>
+  		<param-name>initialParameter</param-name>
+  		<param-value>one</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>initialParameter2</param-name>
+  		<param-value>two</param-value>
+  	</init-param>
   </servlet>
   <servlet-mapping>
     <servlet-name>HelloServlet</servlet-name>
@@ -45,5 +71,7 @@
     <servlet-name>InitServlet2</servlet-name>
     <url-pattern>/initial/InitialServlet2</url-pattern>
   </servlet-mapping>
+  
+  
   
 </web-app>
