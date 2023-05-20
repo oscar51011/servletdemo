@@ -1,46 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://Java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-  <display-name>servletdemo</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
-  
-  <filter>
-  	<filter-name>testFilter</filter-name>
-  	<filter-class>com.demo.filter.TestFilter</filter-class>
-  </filter>
-  
-  <filter-mapping>
-  	<filter-name>testFilter</filter-name>
-  	<url-pattern>/*</url-pattern>
-  </filter-mapping>
-  
-  <filter>
-  	<filter-name>errorFilter</filter-name>
-  	<filter-class>com.demo.filter.ErrorFilter</filter-class>
-  </filter>
-  
-  <filter-mapping>
-  	<filter-name>errorFilter</filter-name>
-  	<url-pattern>/*</url-pattern>
-  	<servlet-name>/view/error.jsp</servlet-name>
-  	<dispatcher>ERROR</dispatcher>
-  </filter-mapping>
-  
-  <!-- 
+	<display-name>servletdemo</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	<filter>
+		<filter-name>testFilter</filter-name>
+		<filter-class>com.demo.filter.TestFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>testFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>errorFilter</filter-name>
+		<filter-class>com.demo.filter.ErrorFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>errorFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<servlet-name>/view/error.jsp</servlet-name>
+		<dispatcher>ERROR</dispatcher>
+	</filter-mapping>
+	<!-- 
   	設定所有的 servlet 都可以讀取到的參數
    -->
-  <context-param>
-  	<param-name>globalParameter</param-name>
-  	<param-value>global</param-value>
-  </context-param>
-  
-  <!-- 
+	<context-param>
+		<param-name>globalParameter</param-name>
+		<param-value>global</param-value>
+	</context-param>
+	<!-- 
     <servlet-name>: 設定Servlet的名稱(該名稱必須唯一)
     <load-on-startup>: 設定Servlet的載入方式
     	- 數字 >= 0 時, 在server啟動時即載入(載入順序由小到大排序)
@@ -48,69 +42,62 @@
     	( InitServlet 載入順序優於 InitServlet2 )
     <init-param>: 初始化參數
    -->
-   
-   <!-- 測試 forward功能 -->
-  <servlet>
-    <servlet-name>IndexServlet</servlet-name>
-    <servlet-class>com.demo.index.IndexServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>IndexServlet</servlet-name>
-    <url-pattern>/index/IndexServlet</url-pattern>
-  </servlet-mapping>
-  
-  <!-- 測試 redirect功能 -->
-  <servlet>
-    <servlet-name>RedirectServlet</servlet-name>
-    <servlet-class>com.demo.index.RedirectServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>RedirectServlet</servlet-name>
-    <url-pattern>/index/RedirectServlet</url-pattern>
-  </servlet-mapping> 
-   
-   <!-- 測試使用 servlet取得web.xml參數 -->
-  <servlet>
-    <servlet-name>HelloServlet</servlet-name>
-    <servlet-class>com.demo.hello.HelloServlet</servlet-class>
-    <init-param>
-  		<param-name>initialParameter</param-name>
-  		<param-value>one</param-value>
-  	</init-param>
-  	<init-param>
-  		<param-name>initialParameter2</param-name>
-  		<param-value>two</param-value>
-  	</init-param>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>HelloServlet</servlet-name>
-    <url-pattern>/hello/HelloServlet</url-pattern>
-  </servlet-mapping>
-  
-  <!-- 測試 servlet啟動順序 -->
-  <servlet>
-    <servlet-name>InitServlet</servlet-name>
-    <servlet-class>com.demo.initial.InitialServlet</servlet-class>
-    <load-on-startup>0</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>InitServlet</servlet-name>
-    <url-pattern>/initial/InitialServlet</url-pattern>
-  </servlet-mapping>
-   
-  <servlet>
-    <servlet-name>InitServlet2</servlet-name>
-    <servlet-class>com.demo.initial.InitialServlet2</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>InitServlet2</servlet-name>
-    <url-pattern>/initial/InitialServlet2</url-pattern>
-  </servlet-mapping>
-  
-  <error-page>
-   <error-code>404</error-code>
-   <location>/view/error.jsp</location>
-  </error-page>
-  
+	<!-- 測試 forward功能 -->
+	<servlet>
+		<servlet-name>IndexServlet</servlet-name>
+		<servlet-class>com.demo.index.IndexServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IndexServlet</servlet-name>
+		<url-pattern>/index/IndexServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 測試 redirect功能 -->
+	<servlet>
+		<servlet-name>RedirectServlet</servlet-name>
+		<servlet-class>com.demo.index.RedirectServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RedirectServlet</servlet-name>
+		<url-pattern>/index/RedirectServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 測試使用 servlet取得web.xml參數 -->
+	<servlet>
+		<servlet-name>HelloServlet</servlet-name>
+		<servlet-class>com.demo.hello.HelloServlet</servlet-class>
+		<init-param>
+			<param-name>initialParameter</param-name>
+			<param-value>one</param-value>
+		</init-param>
+		<init-param>
+			<param-name>initialParameter2</param-name>
+			<param-value>two</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HelloServlet</servlet-name>
+		<url-pattern>/hello/HelloServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 測試 servlet啟動順序 -->
+	<servlet>
+		<servlet-name>InitServlet</servlet-name>
+		<servlet-class>com.demo.initial.InitialServlet</servlet-class>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InitServlet</servlet-name>
+		<url-pattern>/initial/InitialServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>InitServlet2</servlet-name>
+		<servlet-class>com.demo.initial.InitialServlet2</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InitServlet2</servlet-name>
+		<url-pattern>/initial/InitialServlet2</url-pattern>
+	</servlet-mapping>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/view/error.jsp</location>
+	</error-page>
 </web-app>

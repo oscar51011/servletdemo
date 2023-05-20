@@ -2,9 +2,11 @@ package com.demo.hello;
 
 import java.io.IOException;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
+import java.util.Random;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -34,6 +36,9 @@ public class HelloServlet extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		System.out.println("start get method");
+		
+		Map<Integer, String> map = new HashMap<Integer, String>();
+        Random r = new Random();
 		
 		getMyContextInfo();
 		getMyServletInfo();
